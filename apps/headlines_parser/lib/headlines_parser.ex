@@ -8,7 +8,10 @@ defmodule HeadlinesParser.Application do
 
     [{_, file_parser, _, _} | _] = Supervisor.which_children(supervisor)
 
-    GenServer.call(file_parser, :load_file)
+    {:ok, parsed_data} = GenServer.call(file_parser, :load_file, 40000)
+    
+    IO.puts "xxxxxxxxxxxxxxxxxxxxxx"
+    IO.inspect parsed_data
 
     {:ok, supervisor}
   end

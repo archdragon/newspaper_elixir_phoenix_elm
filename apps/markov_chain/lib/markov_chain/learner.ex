@@ -25,14 +25,15 @@ defmodule MarkovChain.Learner do
   end
 
   defp parse_word_list(chain_data, []) do
-    ArchIo.log "End of the list reached", 1
+    # ArchIo.log "End of the list reached", 1
 
-    DataStore.save_sentence(chain_data)
+    #DataStore.save_sentence(chain_data)
+    chain_data
   end
 
   defp add_pair(chain_data, source, target) do
 
-    ArchIo.log "Adding pair '#{source}' -> '#{target}'"
+    # ArchIo.log "Adding pair '#{source}' -> '#{target}'"
 
     case target do
       nil ->

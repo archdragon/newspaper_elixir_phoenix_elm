@@ -6,14 +6,12 @@ defmodule HeadlinesParser.FileParser do
   end
 
   def handle_call(:load_file, _from, state) do
-    file_name = "./files/headlines.txt"
+    file_name = "./files/tech/all.txt"
 
-    case File.exists?(file_name) do
-      true -> read_file(file_name)
-      false -> IO.puts "Headlines file not found"
-    end
+    read_file(file_name)
+    #|> MarkovChain.Utils.merge_all
 
-    {:reply, :ok, state}
+    {:reply, {:ok, parsed_file_data}, state}
   end
 
   defp read_file(file_name) do
@@ -22,7 +20,7 @@ defmodule HeadlinesParser.FileParser do
     File.stream!(file_name)
     |> Stream.map(&(clear_line(&1)))
     #|> Enum.each(&(IO.puts(&1)))
-    |> Enum.each(&(parse_line(&1)))
+    |> Enum.map(&(parse_line(&1)))
   end
 
   defp clear_line(line_text) do

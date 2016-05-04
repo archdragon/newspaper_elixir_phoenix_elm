@@ -17,9 +17,5 @@ defmodule HeadlinesParser.Supervisor do
     IO.puts "Launching supervision"
 
     supervise(children, strategy: :one_for_one)
-
-    #GenServer.call(file_parser, {:load_file})
-
-    #GenServer.call(file_parser_pid, :load_file)
   end
 end
