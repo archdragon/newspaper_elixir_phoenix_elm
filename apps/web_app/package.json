@@ -1,13 +1,13 @@
 {
-  "repository": {
-  },
+  "repository": {},
   "scripts": {
     "deploy": "brunch build --production",
     "watch": "brunch watch --stdin"
   },
   "dependencies": {
     "phoenix": "file:../../deps/phoenix",
-    "phoenix_html": "file:../../deps/phoenix_html"
+    "phoenix_html": "file:../../deps/phoenix_html",
+    "sass-brunch": "^1.9.2"
   },
   "devDependencies": {
     "babel-brunch": "~6.0.0",

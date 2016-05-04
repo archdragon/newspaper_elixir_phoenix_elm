@@ -1,0 +1,25 @@
+Elm.NewspaperPage = Elm.NewspaperPage || {};
+Elm.NewspaperPage.make = function (_elm) {
+   "use strict";
+   _elm.NewspaperPage = _elm.NewspaperPage || {};
+   if (_elm.NewspaperPage.values) return _elm.NewspaperPage.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $Html = Elm.Html.make(_elm),
+   $Html$Attributes = Elm.Html.Attributes.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm);
+   var _op = {};
+   var newspaperPageView = function (model) {
+      return A2($Html.div,
+      _U.list([]),
+      _U.list([A2($Html.div,_U.list([$Html$Attributes.$class("page-header")]),_U.list([$Html.text("Real Newspaper")]))
+              ,A2($Html.div,_U.list([]),A2($List.map,function (t) {    return $Html.text(t);},model.articles))]));
+   };
+   var Article = function (a) {    return {title: a};};
+   var NewspaperPage = function (a) {    return {articles: a};};
+   return _elm.NewspaperPage.values = {_op: _op,NewspaperPage: NewspaperPage,Article: Article,newspaperPageView: newspaperPageView};
+};

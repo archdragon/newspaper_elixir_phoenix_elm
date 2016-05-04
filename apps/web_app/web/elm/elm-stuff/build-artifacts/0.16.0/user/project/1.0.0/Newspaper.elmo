@@ -9,9 +9,11 @@ Elm.Newspaper.make = function (_elm) {
    $Html = Elm.Html.make(_elm),
    $List = Elm.List.make(_elm),
    $Maybe = Elm.Maybe.make(_elm),
+   $NewspaperPage = Elm.NewspaperPage.make(_elm),
    $Result = Elm.Result.make(_elm),
    $Signal = Elm.Signal.make(_elm);
    var _op = {};
-   var main = $Html.text("Hello from Elm");
-   return _elm.Newspaper.values = {_op: _op,main: main};
+   var init = {articles: _U.list(["one","two","three"])};
+   var main = $NewspaperPage.newspaperPageView(init);
+   return _elm.Newspaper.values = {_op: _op,init: init,main: main};
 };

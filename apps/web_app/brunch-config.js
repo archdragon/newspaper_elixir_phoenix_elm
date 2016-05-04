@@ -44,7 +44,8 @@ exports.config = {
     watched: [
       "web/static",
       "test/static",
-      "web/elm/Newspaper.elm"
+      "web/elm/Newspaper.elm",
+      "web/elm/NewspaperPage.elm"
     ],
 
     // Where to compile files to
@@ -55,7 +56,7 @@ exports.config = {
   plugins: {
     elmBrunch: {
       elmFolder: 'web/elm',
-      mainModules: ['Newspaper.elm'],
+      mainModules: ['Newspaper.elm', 'NewspaperPage.elm'],
       outputFolder: '../static/vendor'
     },
     babel: {

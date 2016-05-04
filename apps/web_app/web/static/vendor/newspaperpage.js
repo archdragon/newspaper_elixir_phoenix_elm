@@ -10245,22 +10245,3 @@ Elm.NewspaperPage.make = function (_elm) {
    var NewspaperPage = function (a) {    return {articles: a};};
    return _elm.NewspaperPage.values = {_op: _op,NewspaperPage: NewspaperPage,Article: Article,newspaperPageView: newspaperPageView};
 };
-Elm.Newspaper = Elm.Newspaper || {};
-Elm.Newspaper.make = function (_elm) {
-   "use strict";
-   _elm.Newspaper = _elm.Newspaper || {};
-   if (_elm.Newspaper.values) return _elm.Newspaper.values;
-   var _U = Elm.Native.Utils.make(_elm),
-   $Basics = Elm.Basics.make(_elm),
-   $Debug = Elm.Debug.make(_elm),
-   $Html = Elm.Html.make(_elm),
-   $List = Elm.List.make(_elm),
-   $Maybe = Elm.Maybe.make(_elm),
-   $NewspaperPage = Elm.NewspaperPage.make(_elm),
-   $Result = Elm.Result.make(_elm),
-   $Signal = Elm.Signal.make(_elm);
-   var _op = {};
-   var init = {articles: _U.list(["one","two","three"])};
-   var main = $NewspaperPage.newspaperPageView(init);
-   return _elm.Newspaper.values = {_op: _op,init: init,main: main};
-};

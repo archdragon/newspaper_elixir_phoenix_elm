@@ -1,6 +1,15 @@
 module Newspaper where
 
-import Html
+import Html exposing (..)
+import NewspaperPage exposing (..)
+import Html.Attributes exposing (class)
 
+init : NewspaperPage
+init =
+  {
+    articles = ["one", "two", "three"]
+  }
+
+main : Html
 main =
-    Html.text "Hello from Elm"
+  newspaperPageView init
