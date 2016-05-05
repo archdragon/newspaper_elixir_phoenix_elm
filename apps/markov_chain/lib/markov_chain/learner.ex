@@ -13,28 +13,34 @@ defmodule MarkovChain.Learner do
     parse_word_list(word_list)
   end
 
+  # A little hack to quickly use 
+  # sequences of two words
+  defp to_double_words(word_list) do
+  end
+
   defp parse_word_list(word_list) do
     parse_word_list(%{}, word_list)
   end
 
   defp parse_word_list(chain_data, [head | tail]) do
     chain_data
-    |> add_pair(head, List.first(tail))
+    #|> add_pair(head, Enum.at(tail, 0), Enum.at(tail, 1))
+    |> add_pair(head, Enum.at(tail, 0))
     |> elem(1)
     |> parse_word_list(tail)
   end
 
   defp parse_word_list(chain_data, []) do
-    # ArchIo.log "End of the list reached", 1
-
-    #DataStore.save_sentence(chain_data)
     chain_data
   end
 
+  defp add_pair(chain_data, source1, source2, target) do
+    source_string = source1 <> "|++|" <> souce2 
+    add_pair(chain_data, source_string, target)
+  end
+
   defp add_pair(chain_data, source, target) do
-
     # ArchIo.log "Adding pair '#{source}' -> '#{target}'"
-
     case target do
       nil ->
         {:finish, chain_data}

@@ -8,10 +8,16 @@ defmodule HeadlinesParser.Application do
 
     [{_, file_parser, _, _} | _] = Supervisor.which_children(supervisor)
 
-    {:ok, parsed_data} = GenServer.call(file_parser, :load_file, 40000)
+   #{:ok, parsed_data} = GenServer.call(file_parser, :load_file, 40000)
     
-    IO.puts "xxxxxxxxxxxxxxxxxxxxxx"
-    IO.inspect parsed_data
+   #Enum.each(1..100, fn(num) ->
+    # parsed_data
+    # |> MarkovChain.Generator.generate_chain
+    # |> Enum.join(" ")
+    # |> IO.puts
+
+    # IO.puts("\n\n")
+   #end)
 
     {:ok, supervisor}
   end
