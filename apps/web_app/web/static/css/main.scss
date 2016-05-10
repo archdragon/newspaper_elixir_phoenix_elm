@@ -1,0 +1,44 @@
+html, body {
+  min-height: 100%;
+}
+
+body {
+  background-image: url('/images/bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: 'Roboto Slab', serif;
+  color: rgba(0, 0, 0, 0.7);
+  padding-bottom: 3em;
+}
+
+h1 {
+  font-size: 4em;
+  text-align: center;
+}
+
+.col-sm-6 {
+  /* border-left: 2px solid rgba(0, 0, 0, 0.1) */
+}
+
+.info-bar {
+  border: 2px solid rgba(0, 0, 0, 0.15);
+  border-width: 2px 0;
+  margin: 1.5em 0;
+  padding: 0.25em 0;
+  border-style: double none;
+}
+
+.fake-text {
+  opacity: 0.3;
+}
+
+.article-image {
+  margin: 0 1em 0.25em 0;
+  max-width: 200px;
+  mix-blend-mode: multiply;
+  opacity: 0.3;
+}
+
+.col-sm-7, .col-sm-5, .col-sm-4, .col-sm-12 {
+  margin-bottom: 2em;
+}

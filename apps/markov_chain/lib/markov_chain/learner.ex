@@ -9,6 +9,32 @@ defmodule MarkovChain.Learner do
     {:reply, :ok, state}
   end
 
+  @doc ~S"""
+    Accepts a list of words and transforms it into a Morkov Chain data
+
+    ## Examples
+
+        iex> MarkovChain.Learner.submit_input(["word1", "word2"])
+        %{
+          "word1" => %{source: "word1", targets: ["word2"]}
+        }
+
+        iex> MarkovChain.Learner.submit_input(["a", "b", "b"])
+        %{
+          "a" => %{source: "a", targets: ["b"]},
+          "b" => %{source: "b", targets: ["b"]}
+        }
+
+        iex> MarkovChain.Learner.submit_input(["b", "a", "b", "b", "b", "c"])
+        %{
+          "a" => %{source: "a", targets: ["b"]},
+          "b" => %{source: "b", targets: ["c", "b", "b", "a"]}
+        }
+
+        iex> MarkovChain.Learner.submit_input([])
+        %{}
+
+  """
   def submit_input(word_list) do
     parse_word_list(word_list)
   end

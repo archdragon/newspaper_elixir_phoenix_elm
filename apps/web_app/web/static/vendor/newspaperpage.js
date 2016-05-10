@@ -10238,10 +10238,42 @@ Elm.NewspaperPage.make = function (_elm) {
    var newspaperPageView = function (model) {
       return A2($Html.div,
       _U.list([]),
-      _U.list([A2($Html.div,_U.list([$Html$Attributes.$class("page-header")]),_U.list([$Html.text("Real Newspaper")]))
-              ,A2($Html.div,_U.list([]),A2($List.map,function (t) {    return $Html.text(t);},model.articles))]));
+      _U.list([A2($Html.div,
+              _U.list([$Html$Attributes.$class("container")]),
+              _U.list([A2($Html.div,_U.list([$Html$Attributes.$class("col-sm-12")]),_U.list([A2($Html.h1,_U.list([]),_U.list([$Html.text(model.title)]))]))
+                      ,A2($Html.div,_U.list([$Html$Attributes.$class("col-sm-12 info-bar")]),_U.list([$Html.text("01 II 2020")]))]))
+              ,A2($Html.div,
+              _U.list([]),
+              _U.list([A2($Html.div,
+              _U.list([$Html$Attributes.$class("container")]),
+              A2($List.map,
+              function (t) {
+                 return A2($Html.div,
+                 _U.list([$Html$Attributes.$class(t.colSize)]),
+                 _U.list([A2($Html.h2,_U.list([]),_U.list([$Html.text(t.title)]))
+                         ,function () {
+                            var _p0 = t.image;
+                            if (_p0 === "") {
+                                  return A2($Html.span,_U.list([]),_U.list([]));
+                               } else {
+                                  return A2($Html.img,
+                                  _U.list([$Html$Attributes.src("/images/pic_person.jpg"),$Html$Attributes.$class("article-image pull-left")]),
+                                  _U.list([]));
+                               }
+                         }()
+                         ,A2($Html.p,
+                         _U.list([$Html$Attributes.$class("fake-text")]),
+                         _U.list([$Html.text("████ █████ ██████████ ███████ ███████ ███████ ████████████ ████ ███████ █ ████ █ █████ █ █████")]))
+                         ,A2($Html.p,
+                         _U.list([$Html$Attributes.$class("fake-text")]),
+                         _U.list([$Html.text("█████████ ██████████ ███ ███ ███████ ███████ ██████ █████ ████████ ████████ █████ █ █████")]))
+                         ,A2($Html.p,
+                         _U.list([$Html$Attributes.$class("fake-text")]),
+                         _U.list([$Html.text("████ █████ ██████ ███ ██ ████ ███████ ███████ ████████████ ████████████ █████ █████ █ █████")]))]));
+              },
+              model.articles))]))]));
    };
-   var Article = function (a) {    return {title: a};};
-   var NewspaperPage = function (a) {    return {articles: a};};
+   var Article = F3(function (a,b,c) {    return {title: a,colSize: b,image: c};});
+   var NewspaperPage = F2(function (a,b) {    return {title: a,articles: b};});
    return _elm.NewspaperPage.values = {_op: _op,NewspaperPage: NewspaperPage,Article: Article,newspaperPageView: newspaperPageView};
 };

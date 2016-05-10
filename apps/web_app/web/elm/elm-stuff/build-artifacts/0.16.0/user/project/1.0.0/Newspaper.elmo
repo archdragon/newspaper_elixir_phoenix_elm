@@ -10,10 +10,24 @@ Elm.Newspaper.make = function (_elm) {
    $List = Elm.List.make(_elm),
    $Maybe = Elm.Maybe.make(_elm),
    $NewspaperPage = Elm.NewspaperPage.make(_elm),
+   $Random = Elm.Random.make(_elm),
    $Result = Elm.Result.make(_elm),
    $Signal = Elm.Signal.make(_elm);
    var _op = {};
-   var init = {articles: _U.list(["one","two","three"])};
+   var init = {title: "Greetings Fellow Humans"
+              ,articles: _U.list([{title: "title 1",colSize: "col-sm-7",image: "/images/pic_person.jpg"}
+                                 ,{title: "title 1",colSize: "col-sm-5",image: ""}
+                                 ,{title: "title 2",colSize: "col-sm-4",image: ""}
+                                 ,{title: "title 2",colSize: "col-sm-4",image: ""}
+                                 ,{title: "title 2",colSize: "col-sm-4",image: ""}
+                                 ,{title: "title 2",colSize: "col-sm-12",image: ""}
+                                 ,{title: "title 2",colSize: "col-sm-12",image: ""}])};
    var main = $NewspaperPage.newspaperPageView(init);
-   return _elm.Newspaper.values = {_op: _op,init: init,main: main};
+   var exampleTitles = _U.list([]);
+   var seed0 = $Random.initialSeed(31415);
+   var _p0 = A2($Random.generate,A2($Random.$int,0,100),seed0);
+   var myint = _p0._0;
+   var seed1 = _p0._1;
+   var randomInt = myint;
+   return _elm.Newspaper.values = {_op: _op,seed0: seed0,myint: myint,seed1: seed1,randomInt: randomInt,exampleTitles: exampleTitles,init: init,main: main};
 };

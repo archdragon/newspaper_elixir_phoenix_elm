@@ -27,9 +27,13 @@ defmodule HeadlinesParser.FileParser do
   end
 
   defp clear_line(line_text) do
-    #String.downcase(line_text)
+    # TODO: Regexp/list
     line_text
+    |> String.downcase
     |> String.replace("\n", "")
+    |> String.replace("\"", "")
+    |> String.replace("'", "")
+    |> String.replace("\\", "")
     |> String.replace(",", "")
     |> String.replace(".", "")
     |> String.replace("\"", "")

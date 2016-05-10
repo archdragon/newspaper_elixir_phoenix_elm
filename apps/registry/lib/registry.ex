@@ -1,0 +1,2 @@
+defmodule Registry do
+end
